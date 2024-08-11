@@ -27,14 +27,14 @@ Pneumonia is an inflammatory condition of the lung affecting primarily the small
 
 ## Project Structure
 
-- `Pneumonia_Detection_Using_Chest_X_Ray.ipynb`: The main Jupyter notebook containing all steps for data loading, preprocessing, model training, evaluation, and conversion to TFLite.
+- `Pneumonia_Detection_Using_Chest_X_Ray.ipynb`: The main Jupyter notebook contains all steps for data loading, preprocessing, model training, evaluation, and conversion to TFLite.
 - `model/`: Directory where the trained model and TFLite model will be saved.
 - `data/`: Directory containing the chest X-ray dataset (not included in the repository; see Dataset Description for instructions on downloading).
 - `README.md`: Project overview and instructions.
 
 ## Dataset Description
 
-The dataset used in this project is the "Chest X-Ray Images (Pneumonia)" dataset from Kaggle. It contains 5,863 X-ray images in two categories: Normal and Pneumonia.
+The dataset is organized into 3 folders (train, test, val) and contains subfolders for each image category (Pneumonia/Normal). There are 5,863 X-Ray images (JPEG) and 2 categories (Pneumonia/Normal). Chest X-ray images (anterior-posterior) were selected from retrospective cohorts of pediatric patients of one to five years old from Guangzhou Women and Children’s Medical Center, Guangzhou. All chest X-ray imaging was performed as part of patients’ routine clinical care. For the analysis of chest x-ray images, all chest radiographs were initially screened for quality control by removing all low-quality or unreadable scans. Two expert physicians then graded the diagnoses for the pictures before being cleared for training the AI system. In order to account for any grading errors, a third expert also checked the evaluation set.
 
 - **Normal**: X-ray images of healthy lungs.
 - **Pneumonia**: X-ray images showing signs of pneumonia.
