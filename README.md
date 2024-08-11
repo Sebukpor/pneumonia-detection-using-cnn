@@ -22,6 +22,9 @@ This project aims to develop a convolutional neural network (CNN) for detecting 
 
 Pneumonia is an inflammatory condition of the lung affecting primarily the small air sacs known as alveoli. Symptoms typically include a combination of productive or dry cough, chest pain, fever, and difficulty breathing. The severity of the condition varies and it is usually caused by infection with viruses or bacteria.
 
+
+![image](https://github.com/user-attachments/assets/4dec3415-5856-43c6-8881-008344590faa)
+
 ## Project Structure
 
 - `Pneumonia_Detection_Using_Chest_X_Ray.ipynb`: The main Jupyter notebook containing all steps for data loading, preprocessing, model training, evaluation, and conversion to TFLite.
