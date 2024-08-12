@@ -93,7 +93,7 @@ After training, the model is converted into TFLite format to be deployed on mobi
 
 ## Contributors
 
-- **Your Name** - [Your GitHub Profile](https://github.com/yourusername)
+- **Divine Sebukpor** - [Your GitHub Profile](https://github.com/sebukpor)
 
 ## License
 
