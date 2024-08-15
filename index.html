@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TFLite Model Inference</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-tflite"></script>
+</head>
+<body>
+    <h1>TFLite Model Inference</h1>
+
+    <!-- Image Upload -->
+    <input type="file" id="imageUpload" accept="image/*">
+    <br><br>
+
+    <!-- Display Uploaded Image -->
+    <img id="uploadedImage" alt="Uploaded Image" width="200">
+    <br><br>
+
+    <!-- Button to Trigger Inference -->
+    <button onclick="makePrediction()">Predict</button>
+    <br><br>
+
+    <!-- Prediction Result -->
+    <div id="predictionResult"></div>
+
+    <script>
+        let model;
+
+        // Load the TFLite model
+        async function loadModel() {
+            const modelUrl = 'https://raw.githubusercontent.com/<your-username>/<your-repository>/main/my_model.tflite';
+            model = await tf.loadTFLiteModel(modelUrl);
+            console.log('Model loaded successfully.');
+        }
+
+        // Call loadModel() when the page loads
+        window.onload = loadModel;
+
+        // Handle Image Upload and Display
+        document.getElementById('imageUpload').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const imgElement = document.getElementById('uploadedImage');
+                imgElement.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        });
+
+        // Function to make a prediction
+        async function makePrediction() {
+            const imgElement = document.getElementById('uploadedImage');
+            const tensor = tf.browser.fromPixels(imgElement)
+                                    .resizeNearestNeighbor([224, 224])  // Adjust size as needed
+                                    .toFloat()
+                                    .expandDims(0);  // Add batch dimension
+
+            console.log('Tensor shape:', tensor.shape);
+
+            const prediction = await model.predict(tensor).data();
+            console.log('Prediction data:', prediction);
+
+            const result = Array.from(prediction).map((p, i) => `Class ${i}: ${p.toFixed(4)}`).join('<br>');
+
+            document.getElementById('predictionResult').innerHTML = result;
+        }
+    </script>
+</body>
+</html>
