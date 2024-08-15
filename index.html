@@ -30,7 +30,7 @@
 
         // Load the TFLite model
         async function loadModel() {
-            const modelUrl = 'https://raw.githubusercontent.com/<your-username>/<your-repository>/main/my_model.tflite';
+            const modelUrl = 'https://raw.github.com/Sebukpor/pneumonia-detection-using-cnn/blob/main/model.tflite';
             model = await tf.loadTFLiteModel(modelUrl);
             console.log('Model loaded successfully.');
         }
