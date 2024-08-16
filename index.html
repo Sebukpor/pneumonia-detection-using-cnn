@@ -53,7 +53,7 @@
         async function makePrediction() {
             const imgElement = document.getElementById('uploadedImage');
             const tensor = tf.browser.fromPixels(imgElement)
-                                    .resizeNearestNeighbor([224, 224])  // Adjust size as needed
+                                    .resizeNearestNeighbor([224, 224, 3])  // Adjust size as needed
                                     .toFloat()
                                     .expandDims(0);  // Add batch dimension
 
